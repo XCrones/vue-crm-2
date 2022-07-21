@@ -1,0 +1,68 @@
+{
+  "main_storage": [
+    {
+      "name": "блокнот",
+      "article": "0001",
+      "in_stok": 12,
+      "price": 145,
+      "specific": "клетка",
+      "receipt_date": "28.06.2022"
+    },
+    {
+      "name": "блокнот",
+      "article": "0002",
+      "in_stok": 27,
+      "price": 190,
+      "specific": "линия",
+      "receipt_date": "22.06.2022"
+    },
+    {
+      "name": "блокнот",
+      "article": "0003",
+      "in_stok": 30,
+      "price": 250,
+      "specific": "клетка",
+      "receipt_date": "20.06.2022"
+    },
+    {
+      "name": "блокнот",
+      "article": "0004",
+      "in_stok": 42,
+      "price": 654,
+      "specific": "линия",
+      "receipt_date": "23.06.2022"
+    },
+    {
+      "name": "блокнот",
+      "article": "0005",
+      "in_stok": 67,
+      "price": 254,
+      "specific": "клетка",
+      "receipt_date": "28.06.2022"
+    },
+    {
+      "name": "блокнот",
+      "article": "0006",
+      "in_stok": 98,
+      "price": 330,
+      "specific": "клетка",
+      "receipt_date": "21.06.2022"
+    },
+    {
+      "name": "блокнот",
+      "article": "0007",
+      "in_stok": 65,
+      "price": 335,
+      "specific": "линия",
+      "receipt_date": "20.06.2022"
+    },
+    {
+      "name": "блокнот",
+      "article": "0008",
+      "in_stok": 10,
+      "price": 140,
+      "specific": "чистый",
+      "receipt_date": "22.06.2022"
+    }
+  ]
+}
