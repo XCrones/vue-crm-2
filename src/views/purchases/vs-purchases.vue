@@ -47,9 +47,9 @@ export default {
 
     this.data_purchaeses = this.GET_PRODUCT(this.type);
     // console.log(this.GET_PRODUCT(this.type));
+    this.render_keys.push('price');
     this.render_keys.push('amount');
     this.render_keys.push('date');
-    this.render_keys.push('price');
   },
 };
 </script>
@@ -65,21 +65,24 @@ export default {
       @delete_active_item="delete_active_item(active_index, data_purchaeses)"
     />
 
-    <table class="table">
-      <vHeaderTable>
-        <td class="table__amount table__text">Кол-во(шт)</td>
-        <td class="table__date table__text">Дата покупки</td>
-        <td class="table__price table__text">Цена</td>
-        <!-- <td class="table__price table__text">Сумма итого(Р)</td> -->
-      </vHeaderTable>
+    <div class="table-responsive">
+      <table class="table table-bordered text-center table-hover user-select-none">
+        <vHeaderTable>
+          <th class="table__price table__text">Цена</th>
+          <th class="table__amount table__text">Кол-во(шт)</th>
+          <th class="table__date table__text">Дата покупки</th>
+          <!-- <td class="table__price table__text">Сумма итого(Р)</td> -->
+        </vHeaderTable>
 
-      <vItem
-        v-bind:render_data="render_keys"
-        v-bind:get_data="data_purchaeses"
-        @doubleClick="doubleClick"
-        @singleclick="singleclick"
-      />
-    </table>
+        <vItem
+          v-bind:render_data="render_keys"
+          v-bind:get_data="data_purchaeses"
+          @doubleClick="doubleClick"
+          @singleclick="singleclick"
+        />
+      </table>
+    </div>
+
     <vPopupVue
       v-if="isPopupVisible"
       v-bind:edit_data="editable_item"

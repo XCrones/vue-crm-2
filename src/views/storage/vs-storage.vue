@@ -46,9 +46,9 @@ export default {
     this.state_btn_top_menu.isCreateActive = this.GET_USER_PERMISSION.isCreate;
 
     this.data_storage = this.GET_PRODUCT(this.type);
+    this.render_keys.push('specific');
     this.render_keys.push('amount');
     this.render_keys.push('date');
-    this.render_keys.push('specific');
   },
 };
 </script>
@@ -64,21 +64,24 @@ export default {
       @delete_active_item="delete_active_item(active_index, data_storage)"
     />
 
-    <table class="table">
-      <vHeaderTable>
-        <td class="table__amount table__text">Кол-во(шт)</td>
-        <td class="table__date table__text">Дата поступления</td>
-        <td class="table__specific table__text">Описание</td>
-        <!-- <td class="table__price table__text">Сумма итого(Р)</td> -->
-      </vHeaderTable>
+    <div class="table table-bordered text-center table-hover user-select-none">
+      <table class="table">
+        <vHeaderTable>
+          <th class="table__specific table__text">Описание</th>
+          <th class="table__amount table__text">Кол-во(шт)</th>
+          <th class="table__date table__text">Дата поступления</th>
+          <!-- <td class="table__price table__text">Сумма итого(Р)</td> -->
+        </vHeaderTable>
 
-      <vItem
-        v-bind:render_data="render_keys"
-        v-bind:get_data="data_storage"
-        @doubleClick="doubleClick"
-        @singleclick="singleclick"
-      />
-    </table>
+        <vItem
+          v-bind:render_data="render_keys"
+          v-bind:get_data="data_storage"
+          @doubleClick="doubleClick"
+          @singleclick="singleclick"
+        />
+      </table>
+    </div>
+
     <vPopupVue
       v-if="isPopupVisible"
       v-bind:edit_data="editable_item"

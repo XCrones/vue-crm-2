@@ -14,13 +14,14 @@ export default {
 </script>
 
 <template>
-  <thead class="table__header">
+  <thead>
     <tr>
-      <td class="table__status table__text">Статус</td>
-      <td class="table__number table__text">№</td>
-      <td class="table__article table__text">Артикул</td>
-      <td class="table__name table__text">Название</td>
+      <th class="table__number table__text" scope="col">№</th>
+      <th class="table__number table__text" scope="col">№ заявки</th>
+      <th class="table__article table__text" scope="col">Артикул</th>
+      <th class="table__name table__text" scope="col">Название</th>
       <slot />
+      <!-- <th class="table__status table__text" scope="col">Статус</th> -->
     </tr>
   </thead>
 </template>

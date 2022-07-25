@@ -64,7 +64,7 @@ export default {
 </script>
 
 <template>
-  <div class="sale__body" @keydown.esc="testEscape" @dblclick="getfull">
+  <div class="container-xs" @keydown.esc="testEscape" @dblclick="getfull">
     <viewsTopMenuVue
       v-bind:state_buttons="state_btn_top_menu"
       @create_new_item="create_new_item(active_index)"
@@ -74,21 +74,24 @@ export default {
       @delete_active_item="delete_active_item(active_index, data_sales)"
     />
 
-    <table class="table">
-      <vHeaderTable>
-        <td class="table__price table__text">Цена шт(Р)</td>
-        <td class="table__amount table__text">Кол-во(шт)</td>
-        <!-- <td class="table__price table__text">Сумма итого(Р)</td> -->
-        <td class="table__date table__text">Дата продажи</td>
-      </vHeaderTable>
+    <div class="table-responsive">
+      <table class="table table-bordered text-center table-hover user-select-none">
+        <vHeaderTable>
+          <th class="table__price table__text" scope="col">Цена шт(Р)</th>
+          <th class="table__amount table__text" scope="col">Кол-во(шт)</th>
+          <!-- <td class="table__price table__text">Сумма итого(Р)</td> -->
+          <th class="table__date table__text" scope="col">Дата продажи</th>
+        </vHeaderTable>
 
-      <vItem
-        v-bind:render_data="render_keys"
-        v-bind:get_data="data_sales"
-        @doubleClick="doubleClick"
-        @singleclick="singleclick"
-      />
-    </table>
+        <vItem
+          v-bind:render_data="render_keys"
+          v-bind:get_data="data_sales"
+          @doubleClick="doubleClick"
+          @singleclick="singleclick"
+        />
+      </table>
+    </div>
+
     <vPopupVue
       v-if="isPopupVisible"
       v-bind:edit_data="editable_item"
@@ -98,10 +101,4 @@ export default {
   </div>
 </template>
 
-<style lang="scss">
-.sale {
-  &__body {
-    user-select: none;
-  }
-}
-</style>
+<style lang="scss"></style>

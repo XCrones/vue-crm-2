@@ -29,7 +29,7 @@ export default createStore({
   },
   getters: {
     GET_CURRENT_USER: (state) => {
-      return state.current_user_name;
+      return state.current_user_name != '' ? state.current_user_name : 'ДЕМО';
     },
     GET_USERS: (state) => {
       return state.users;

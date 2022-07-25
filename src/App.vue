@@ -22,6 +22,105 @@ export default {
           date: '2022-06-08',
         },
         {
+          id: '0001',
+          name: 'тетрадь',
+          article: '0001',
+          amount: 20,
+          price: 157,
+          specific: 'клетка',
+          date: '2022-06-08',
+        },
+        {
+          id: '0001',
+          name: 'тетрадь',
+          article: '0001',
+          amount: 20,
+          price: 157,
+          specific: 'клетка',
+          date: '2022-06-08',
+        },
+        {
+          id: '0001',
+          name: 'тетрадь',
+          article: '0001',
+          amount: 20,
+          price: 157,
+          specific: 'клетка',
+          date: '2022-06-08',
+        },
+        {
+          id: '0001',
+          name: 'тетрадь',
+          article: '0001',
+          amount: 20,
+          price: 157,
+          specific: 'клетка',
+          date: '2022-06-08',
+        },
+        {
+          id: '0001',
+          name: 'тетрадь',
+          article: '0001',
+          amount: 20,
+          price: 157,
+          specific: 'клетка',
+          date: '2022-06-08',
+        },
+        {
+          id: '0001',
+          name: 'тетрадь',
+          article: '0001',
+          amount: 20,
+          price: 157,
+          specific: 'клетка',
+          date: '2022-06-08',
+        },
+        {
+          id: '0001',
+          name: 'тетрадь',
+          article: '0001',
+          amount: 20,
+          price: 157,
+          specific: 'клетка',
+          date: '2022-06-08',
+        },
+        {
+          id: '0001',
+          name: 'тетрадь',
+          article: '0001',
+          amount: 20,
+          price: 157,
+          specific: 'клетка',
+          date: '2022-06-08',
+        },
+        {
+          id: '0001',
+          name: 'тетрадь',
+          article: '0001',
+          amount: 20,
+          price: 157,
+          specific: 'клетка',
+          date: '2022-06-08',
+        },
+        {
+          id: '0001',
+          name: 'тетрадь',
+          article: '0001',
+          amount: 20,
+          price: 157,
+          specific: 'клетка',
+          date: '2022-06-08',
+        },
+        {
+          id: '0001',
+          name: 'тетрадь',
+          article: '0001',
+          amount: 20,
+          price: 157,
+          specific: 'клетка',
+          date: '2022-06-08',
+        },
+        {
           id: '0002',
           name: 'тетрадь',
           article: '0002',
@@ -240,7 +339,7 @@ export default {
         isPublic: true,
         isDelete: true,
       },
-      isValidUser: false,
+      isValidUser: true,
     };
   },
   methods: {
@@ -273,7 +372,8 @@ export default {
 </template>
 
 <style lang="scss">
-@import '~materialize-css/dist/css/materialize.min.css';
+// @import '~materialize-css/dist/css/materialize.min.css';
+@import '~bootstrap/dist/css/bootstrap.css';
 
 .table {
   // &__wrapper {
@@ -281,10 +381,10 @@ export default {
   //   flex-direction: column;
   // }
 
-  &__header {
-    user-select: none;
-    width: 100%;
-  }
+  // &__header {
+  //   user-select: none;
+  //   width: 100%;
+  // }
 
   &__tr {
     cursor: pointer;
@@ -297,13 +397,13 @@ export default {
   // }
 
   &__target {
-    color: #fff;
-    background-color: #1d6855;
+    // color: #fff;
+    background-color: #c1c1c4;
   }
 
-  &__status {
-    width: 60px;
-  }
+  // &__status {
+  //   width: 60px;
+  // }
 
   &__status-content {
     position: relative;
@@ -343,35 +443,35 @@ export default {
       background-color: rgb(187, 63, 212);
     }
   }
-  &__number {
-    width: 80px;
-  }
+  // &__number {
+  //   width: 80px;
+  // }
 
-  &__text {
-    text-align: center;
-  }
+  // &__text {
+  //   text-align: center;
+  // }
 
-  &__article {
-    width: 200px;
-  }
+  // &__article {
+  //   width: 200px;
+  // }
 
-  &__name {
-    width: 300px;
-  }
+  // &__name {
+  //   width: 300px;
+  // }
 
-  &__price {
-    width: 150px;
-  }
+  // &__price {
+  //   width: 150px;
+  // }
 
-  &__amount {
-    width: 100px;
-  }
+  // &__amount {
+  //   width: 100px;
+  // }
 
-  &__date {
-    width: 200px;
-  }
+  // &__date {
+  //   width: 200px;
+  // }
 
-  &__other {
-  }
+  // &__other {
+  // }
 }
 </style>

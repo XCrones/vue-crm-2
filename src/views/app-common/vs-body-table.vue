@@ -27,7 +27,12 @@ export default {
 </script>
 
 <template>
-  <td
+  <th scope="row" class="table__text">{{ index + 1 }}</th>
+  <td class="table__text">Номер заявки</td>
+  <td class="table__text">{{ item.article }}</td>
+  <td class="table__text">{{ item.name }}</td>
+  <slot />
+  <!-- <td
     class="table__status table__status-content table__text"
     v-bind:class="[
       { 'table__status-edited': item.status === 'edited' },
@@ -37,11 +42,7 @@ export default {
     ]"
   >
     <div></div>
-  </td>
-  <td class="table__text">{{ index + 1 }}</td>
-  <td class="table__text">{{ item.article }}</td>
-  <td class="table__text">{{ item.name }}</td>
-  <slot />
+  </td> -->
 </template>
 
 <style lang="scss"></style>

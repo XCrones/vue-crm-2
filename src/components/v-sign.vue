@@ -21,86 +21,86 @@ export default {
   },
   methods: {
     ...mapActions(['SET_CURRENT_USER', 'SET_USERS']),
-    toggle_sign() {
-      this.inputData.name = '';
-      this.inputData.pass = '';
-      this.inputData.pass_again = '';
+    // toggle_sign() {
+    //   this.inputData.name = '';
+    //   this.inputData.pass = '';
+    //   this.inputData.pass_again = '';
 
-      this.error.name = '';
-      this.error.pass = '';
-      if (!this.isSign) {
-        this.isSign = true;
-        this.signTitle = 'регистрация';
-      } else {
-        this.isSign = false;
-        this.signTitle = 'вход';
-      }
-    },
-    validData() {
-      this.error.name = '';
-      this.error.pass = '';
-      if (!this.isSign) {
-        // console.log('in ');
+    //   this.error.name = '';
+    //   this.error.pass = '';
+    //   if (!this.isSign) {
+    //     this.isSign = true;
+    //     this.signTitle = 'регистрация';
+    //   } else {
+    //     this.isSign = false;
+    //     this.signTitle = 'вход';
+    //   }
+    // },
+    // validData() {
+    //   this.error.name = '';
+    //   this.error.pass = '';
+    //   if (!this.isSign) {
+    //     // console.log('in ');
 
-        if (this.inputData.name.length > 0 && this.inputData.name.trim()) {
-          if (this.inputData.pass.length > 0 && this.inputData.pass.trim()) {
-            if (
-              this.GET_USERS.find((item) => item.name === this.inputData.name && item.pass === this.inputData.pass) !=
-              undefined
-            ) {
-              // console.log('login ok');
-              this.SET_CURRENT_USER(this.inputData.name);
-              this.$emit('user_valid', this.inputData.name);
-            } else {
-              let keys = Object.keys(localStorage);
-              for (let key of keys) {
-                if (key === this.inputData.name) {
-                  this.SET_CURRENT_USER(this.inputData.name);
-                  this.$emit('user_valid', this.inputData.name);
-                }
-              }
-              this.error.name = 'нет такого пользователя';
-              this.error.pass = 'нет такого пользователя';
-            }
-          } else {
-            this.error.pass = 'заполните поле';
-          }
-        } else {
-          this.error.name = 'заполните поле';
-        }
-      } else {
-        if (this.inputData.name.length > 0 && this.inputData.name.trim()) {
-          if (
-            this.inputData.pass.length > 0 &&
-            this.inputData.pass.trim() &&
-            this.inputData.pass_again.length > 0 &&
-            this.inputData.pass_again.trim()
-          ) {
-            if (this.inputData.pass === this.inputData.pass_again) {
-              // console.log(JSON.stringify(this.GET_USERS));
-              // console.log(this.GET_USERS.find((item) => item.name === this.inputData.name));
-              if (this.GET_USERS.find((item) => item.name === this.inputData.name) === undefined) {
-                delete this.inputData.pass_again;
-                this.SET_USERS(this.inputData);
-                this.inputData.name = '';
-                this.inputData.pass = '';
-                this.inputData.pass_again = '';
-                this.isSign = false;
-                this.signTitle = 'вход';
-              } else {
-                this.error.name = 'имя занято';
-              }
-            } else {
-              this.error.pass = 'пароли не совпадают';
-            }
-          } else {
-            this.error.pass = 'заполните поле';
-          }
-        } else {
-          this.error.name = 'заполните поле';
-        }
-      }
-    },
+    //     if (this.inputData.name.length > 0 && this.inputData.name.trim()) {
+    //       if (this.inputData.pass.length > 0 && this.inputData.pass.trim()) {
+    //         if (
+    //           this.GET_USERS.find((item) => item.name === this.inputData.name && item.pass === this.inputData.pass) !=
+    //           undefined
+    //         ) {
+    //           // console.log('login ok');
+    //           this.SET_CURRENT_USER(this.inputData.name);
+    //           this.$emit('user_valid', this.inputData.name);
+    //         } else {
+    //           let keys = Object.keys(localStorage);
+    //           for (let key of keys) {
+    //             if (key === this.inputData.name) {
+    //               this.SET_CURRENT_USER(this.inputData.name);
+    //               this.$emit('user_valid', this.inputData.name);
+    //             }
+    //           }
+    //           this.error.name = 'нет такого пользователя';
+    //           this.error.pass = 'нет такого пользователя';
+    //         }
+    //       } else {
+    //         this.error.pass = 'заполните поле';
+    //       }
+    //     } else {
+    //       this.error.name = 'заполните поле';
+    //     }
+    //   } else {
+    //     if (this.inputData.name.length > 0 && this.inputData.name.trim()) {
+    //       if (
+    //         this.inputData.pass.length > 0 &&
+    //         this.inputData.pass.trim() &&
+    //         this.inputData.pass_again.length > 0 &&
+    //         this.inputData.pass_again.trim()
+    //       ) {
+    //         if (this.inputData.pass === this.inputData.pass_again) {
+    //           // console.log(JSON.stringify(this.GET_USERS));
+    //           // console.log(this.GET_USERS.find((item) => item.name === this.inputData.name));
+    //           if (this.GET_USERS.find((item) => item.name === this.inputData.name) === undefined) {
+    //             delete this.inputData.pass_again;
+    //             this.SET_USERS(this.inputData);
+    //             this.inputData.name = '';
+    //             this.inputData.pass = '';
+    //             this.inputData.pass_again = '';
+    //             this.isSign = false;
+    //             this.signTitle = 'вход';
+    //           } else {
+    //             this.error.name = 'имя занято';
+    //           }
+    //         } else {
+    //           this.error.pass = 'пароли не совпадают';
+    //         }
+    //       } else {
+    //         this.error.pass = 'заполните поле';
+    //       }
+    //     } else {
+    //       this.error.name = 'заполните поле';
+    //     }
+    //   }
+    // },
   },
   watch: {},
   computed: {
@@ -112,6 +112,34 @@ export default {
 
 <template>
   <div class="sign">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" />
+            <label for="floatingInput">Логин</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" />
+            <label for="floatingPassword">Пароль</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col text-center">
+          <div class="d-grid gap-2">
+            <button class="btn btn-primary btn-lg" type="button">Вход</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="sign">
     <div class="sign__wrapper">
       <div class="sign__header">
         <input type="submit" class="sign__input" value="Войти" :disabled="!isSign" @click.prevent="toggle_sign" />
@@ -150,113 +178,121 @@ export default {
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <style lang="scss" scoped>
 .sign {
-  background-color: rgb(49, 57, 61);
-  width: 100%;
   height: 100vh;
-
-  color: #fff;
-
-  &__wrapper {
-    width: 400px;
-    margin: 0 auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  &__header {
-    margin: 0 0 50px 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-
-    input {
-      color: #000;
-      height: 25px;
-      cursor: pointer;
-    }
-  }
-
-  &__title {
-    font-size: 20px;
-    text-align: center;
-    text-transform: capitalize;
-  }
-
-  &__butt {
-  }
-
-  &__body {
-  }
-
-  &__items {
-  }
-
-  &__item {
-    position: relative;
-    margin: 0 0 25px 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
-    div {
-      height: 35px;
-      flex: 1 1 auto;
-    }
-
-    input {
-      flex: 0 1 270px;
-      letter-spacing: 0.1em;
-    }
-  }
-
-  &__error-text {
-    position: absolute;
-    bottom: -25px;
-    left: 50%;
-    transform: translateX(-15%);
-    font-size: 12px;
-    color: red;
-    letter-spacing: 0.1em;
-  }
-
-  &__name {
-  }
-
-  &__input {
-    color: #fff;
-  }
-
-  &__password {
-  }
-
-  &__button {
-    input {
-      width: 100%;
-      height: 37px;
-      border-radius: 15px;
-      border: 1px solid rgb(90, 88, 88);
-      text-transform: uppercase;
-      background-color: #216d5a;
-      cursor: pointer;
-      letter-spacing: 0.1em;
-      font-weight: 600;
-    }
-
-    input:hover {
-      background-color: #32927a;
-      color: #000;
-    }
-  }
+  width: 100%;
 }
-.butt {
+.container {
+  max-width: 550px;
+  // margin-top: 200px;
 }
+// .sign {
+//   background-color: rgb(49, 57, 61);
+//   width: 100%;
+//   height: 100vh;
+
+//   color: #fff;
+
+//   &__wrapper {
+//     width: 400px;
+//     margin: 0 auto;
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//   }
+
+//   &__header {
+//     margin: 0 0 50px 0;
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-around;
+//     align-items: center;
+
+//     input {
+//       color: #000;
+//       height: 25px;
+//       cursor: pointer;
+//     }
+//   }
+
+//   &__title {
+//     font-size: 20px;
+//     text-align: center;
+//     text-transform: capitalize;
+//   }
+
+//   &__butt {
+//   }
+
+//   &__body {
+//   }
+
+//   &__items {
+//   }
+
+//   &__item {
+//     position: relative;
+//     margin: 0 0 25px 0;
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-between;
+//     align-items: center;
+
+//     div {
+//       height: 35px;
+//       flex: 1 1 auto;
+//     }
+
+//     input {
+//       flex: 0 1 270px;
+//       letter-spacing: 0.1em;
+//     }
+//   }
+
+//   &__error-text {
+//     position: absolute;
+//     bottom: -25px;
+//     left: 50%;
+//     transform: translateX(-15%);
+//     font-size: 12px;
+//     color: red;
+//     letter-spacing: 0.1em;
+//   }
+
+//   &__name {
+//   }
+
+//   &__input {
+//     color: #fff;
+//   }
+
+//   &__password {
+//   }
+
+//   &__button {
+//     input {
+//       width: 100%;
+//       height: 37px;
+//       border-radius: 15px;
+//       border: 1px solid rgb(90, 88, 88);
+//       text-transform: uppercase;
+//       background-color: #216d5a;
+//       cursor: pointer;
+//       letter-spacing: 0.1em;
+//       font-weight: 600;
+//     }
+
+//     input:hover {
+//       background-color: #32927a;
+//       color: #000;
+//     }
+//   }
+// }
+// .butt {
+// }
 </style>

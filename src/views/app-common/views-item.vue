@@ -59,7 +59,13 @@ export default {
       :key="item.id"
       @click="singleClick(index)"
       @dblclick="doubleClick(index)"
-      :class="{ table__target: `${index}` == active_index }"
+      :class="[
+        { 'table-active': `${index}` == active_index },
+        { 'bg-warning bg-gradientt': item.status === 'edited' },
+        { 'bg-danger bg-gradient': item.status === 'error' },
+        { 'bg-success bg-gradient': item.status === 'new' },
+        { 'bg-secondary bg-gradient': item.status === 'delete' },
+      ]"
     >
       <vsBodyTbale v-bind:item="item" v-bind:index="index">
         <td class="table__text">{{ get_specific_field(item, render_data[0]) }}</td>

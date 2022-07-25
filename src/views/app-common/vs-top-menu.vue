@@ -48,7 +48,16 @@ export default {
         this.$emit('delete_active_item');
       }
     },
+    classObject(state) {
+      return [
+        { 'text-white': state.status },
+        { active: state.status },
+        { 'text-success': !state.status },
+        { disable: !state.status },
+      ];
+    },
   },
+
   watch: {},
   computed: {
     ...mapGetters(['GET_USER_PERMISSION']),
@@ -58,7 +67,75 @@ export default {
 </script>
 
 <template>
-  <div class="top-menu__body" @click="remove_target">
+  <ul class="nav text-capitalize top-menu justify-content-start user-select-none" @click="remove_target">
+    <li class="nav-item" @click="create_new_item">
+      <a
+        class="nav-link d-inline-block"
+        :class="{
+          'text-white active': state_buttons.isCreateActive,
+          disabled: !state_buttons.isCreateActive,
+        }"
+        aria-current="page"
+        href="#"
+        >Создать</a
+      >
+    </li>
+    <li class="nav-item" @click="open_active_item">
+      <a
+        class="nav-link"
+        :class="{
+          'text-white active': state_buttons.isOpenActive,
+          disabled: !state_buttons.isOpenActive,
+        }"
+        aria-current="page"
+        href="#"
+        >Открыть</a
+      >
+    </li>
+    <li class="nav-item" @click="delete_active_item">
+      <a
+        class="nav-link"
+        :class="{
+          'text-white active': state_buttons.isDeleteActive,
+          disabled: !state_buttons.isDeleteActive,
+        }"
+        aria-current="page"
+        href="#"
+        >удалить</a
+      >
+    </li>
+    <li class="nav-item" @click="cancel_edited_item">
+      <a
+        class="nav-link"
+        :class="{
+          'text-white active': state_buttons.isPublicActive,
+          disabled: !state_buttons.isPublicActive,
+        }"
+        aria-current="page"
+        href="#"
+        >отмена</a
+      >
+    </li>
+    <li class="nav-item" @click="public_edited_item">
+      <a
+        class="nav-link"
+        :class="{
+          'text-white active': state_buttons.isPublicActive,
+          disabled: !state_buttons.isPublicActive,
+        }"
+        aria-current="page"
+        href="#"
+        >провести</a
+      >
+    </li>
+    <!-- <li class="nav-item">
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Search" />
+        <button class="btn btn-outline-success" type="submit">Поиск</button>
+      </form>
+    </li> -->
+  </ul>
+  <!-- <div class="top-menu__body" @click="remove_target">
     <ul class="top-menu__list">
       <li
         class="top-menu__create"
@@ -117,78 +194,82 @@ export default {
       <li></li>
       <li></li>
     </ul>
-  </div>
+  </div> -->
 </template>
 
 <style lang="scss" scoped>
 .top-menu {
-  &__body {
-    user-select: none;
-    background-color: #278f75;
-  }
-
-  &__list {
-    padding: 0 0 0 10px;
-    color: #fff;
-    margin: 0;
-    display: flex;
-    font-display: row;
-
-    li {
-      margin: 0 40px 0 0;
-      height: 100%;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      text-align: center;
-
-      div:first-child {
-        width: 20px;
-        margin: 0 10px 0 0;
-        display: flex;
-        justify-content: center;
-
-        img {
-          max-width: 100%;
-        }
-      }
-
-      div:last-child {
-        height: 40px;
-        line-height: 40px;
-      }
-    }
-
-    span {
-      display: inline-block;
-    }
-  }
-
-  &__img {
-    filter: grayscale(100%);
-  }
-
-  &__create {
-  }
-
-  &__text {
-    color: #aeaeae;
-    text-transform: capitalize;
-  }
-
-  &__edit {
-  }
+  background-color: #10345e;
 }
 
-.active__cursor {
-  div {
-    img {
-      filter: grayscale(0%);
-    }
-  }
-  cursor: pointer;
-  .top-menu__text {
-    color: #fff;
-  }
-}
+// .top-menu {
+//   &__body {
+//     user-select: none;
+//     background-color: #278f75;
+//   }
+
+//   &__list {
+//     padding: 0 0 0 10px;
+//     color: #fff;
+//     margin: 0;
+//     display: flex;
+//     font-display: row;
+
+//     li {
+//       margin: 0 40px 0 0;
+//       height: 100%;
+//       display: flex;
+//       flex-direction: row;
+//       align-items: center;
+//       text-align: center;
+
+//       div:first-child {
+//         width: 20px;
+//         margin: 0 10px 0 0;
+//         display: flex;
+//         justify-content: center;
+
+//         img {
+//           max-width: 100%;
+//         }
+//       }
+
+//       div:last-child {
+//         height: 40px;
+//         line-height: 40px;
+//       }
+//     }
+
+//     span {
+//       display: inline-block;
+//     }
+//   }
+
+//   &__img {
+//     filter: grayscale(100%);
+//   }
+
+//   &__create {
+//   }
+
+//   &__text {
+//     color: #aeaeae;
+//     text-transform: capitalize;
+//   }
+
+//   &__edit {
+//   }
+// }
+
+// .active__cursor {
+//   div {
+//     img {
+//       filter: grayscale(0%);
+//     }
+//   }
+//   cursor: pointer;
+//   .top-menu__text {
+//     color: #fff;
+//   }
+// }
 </style>
