@@ -5,6 +5,7 @@ import store from './store';
 // import 'materialize-css/dist/js/materialize.min';
 // import 'material-design-icons-iconfont';
 
-import 'bootstrap/dist/js/bootstrap.js';
+// import 'bootstrap/dist/js/bootstrap.js';
+import '@/bootstrap.js';
 
 createApp(App).use(store).use(router).mount('#app');
